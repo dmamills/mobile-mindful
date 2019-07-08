@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14810.12" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch42"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14766.15"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14619.8"/>
+    </dependencies>
+    <scenes>
+        <!--StatsInterfaceController-->
+        <scene sceneID="fNJ-mL-1yt">
+            <objects>
+                <controller identifier="StatsInterfaceController" id="0yT-45-6WR" customClass="StatsInterfaceController" customModule="mobilemindful_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Mindful Progress" minimumScaleFactor="0.80000000000000004" id="8D6-YK-5oM">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                        </label>
+                        <label width="1" alignment="center" text="0 minutes" textAlignment="center" id="GZg-FC-uTK">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                        </label>
+                        <table alignment="left" id="te5-rI-Vmv">
+                            <items>
+                                <tableRow identifier="SessionRow" id="Rta-CU-9Qj" customClass="SessionRowController" customModule="mobilemindful_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="45" alignment="left" layout="vertical" id="6yD-c3-g9Y">
+                                        <items>
+                                            <label alignment="left" text="Label" id="gd7-5J-Vrd"/>
+                                            <label alignment="left" text="5 minutes" id="GrW-Yf-hHx">
+                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                            </label>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="dateLabel" destination="gd7-5J-Vrd" id="Axa-o2-sNd"/>
+                                        <outlet property="lengthLabel" destination="GrW-Yf-hHx" id="p8Y-cX-CpZ"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="sessionsTable" destination="te5-rI-Vmv" id="kRH-Dz-09r"/>
+                        <outlet property="totalTimeLabel" destination="GZg-FC-uTK" id="fL6-nN-BuQ"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="679" y="-133"/>
+        </scene>
+        <!--HomeInterfaceController-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller identifier="HomeInterfaceController" id="AgC-eL-Hgc" customClass="HomeInterfaceController" customModule="mobilemindful_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Mobile Mindful" id="Veb-G0-rId">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                        </label>
+                        <label alignment="left" text="Start 5 Minute Session" minimumScaleFactor="0.5" id="jlm-Dh-8m7"/>
+                        <button width="1" height="40" alignment="left" verticalAlignment="bottom" title="Begin" backgroundImage="gradient" id="1zp-TJ-7qu">
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="onStartPressed" destination="AgC-eL-Hgc" id="lKN-NF-0eo"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="sessionLabel" destination="jlm-Dh-8m7" id="rAj-Nv-BhZ"/>
+                        <outlet property="startButton" destination="1zp-TJ-7qu" id="9k5-75-BGe"/>
+                        <segue destination="wol-7z-4Pg" kind="relationship" relationship="nextPage" id="6yG-DV-tBR"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="43" y="-133"/>
+        </scene>
+        <!--MeditationInterfaceController-->
+        <scene sceneID="7Cw-Cn-R2w">
+            <objects>
+                <controller identifier="MeditationInterfaceController" id="0Cs-5k-nhR" customClass="MeditationInterfaceController" customModule="mobilemindful_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Mobile Mindful" id="kQO-WB-I7G">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                        </label>
+                        <group width="1" alignment="center" spacing="0.0" id="gAf-Lo-PdC">
+                            <items>
+                                <timer alignment="left" verticalAlignment="center" id="J1u-0W-CPp">
+                                    <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                                    <calendarUnit key="units" minute="YES" second="YES"/>
+                                </timer>
+                                <group alignment="right" verticalAlignment="bottom" spacing="5" id="Jvc-uY-ryE">
+                                    <items>
+                                        <label alignment="center" verticalAlignment="center" text="---" id="4ZU-2x-hNl">
+                                            <color key="textColor" red="0.90404826400000005" green="0.29848873619999999" blue="0.23712033029999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                        </label>
+                                        <imageView width="20" height="20" alignment="right" verticalAlignment="center" image="heart-icon" contentMode="scaleAspectFill" id="f9o-wx-vc2"/>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <volumeControlView alignment="right" id="sOe-yd-mdw">
+                            <color key="tintColor" red="0.53708930300000002" green="0.50009612609999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </volumeControlView>
+                    </items>
+                    <connections>
+                        <outlet property="heartRateImage" destination="f9o-wx-vc2" id="pX1-Of-bAh"/>
+                        <outlet property="heartRateLabel" destination="4ZU-2x-hNl" id="8Xo-9K-nKg"/>
+                        <outlet property="timerLabel" destination="J1u-0W-CPp" id="JXz-kY-XPc"/>
+                        <outlet property="titleLabel" destination="kQO-WB-I7G" id="mS5-Mf-Uey"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="43" y="320"/>
+        </scene>
+        <!--SettingsInterfaceController-->
+        <scene sceneID="8ug-eS-UZT">
+            <objects>
+                <controller identifier="SettingsInterfaceController" id="wol-7z-4Pg" customClass="SettingsInterfaceController" customModule="mobilemindful_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Settings" id="e5v-qk-7IK">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                        </label>
+                        <separator alignment="left" alpha="0.80000000000000004" id="zfl-VU-Mb3">
+                            <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <group width="1" alignment="left" layout="vertical" id="nIF-w2-rAi">
+                            <items>
+                                <label alignment="left" text="Session Length" numberOfLines="2" id="kdk-Wf-65x"/>
+                                <label alignment="left" text="5 minutes" numberOfLines="2" id="lwB-sw-hPZ">
+                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                </label>
+                                <slider width="1" alignment="left" value="5" minimum="1" maximum="10" steps="10" id="3ZS-Qr-QXZ">
+                                    <connections>
+                                        <action selector="onSessionLengthChanged:" destination="wol-7z-4Pg" id="hlO-l0-Jtg"/>
+                                    </connections>
+                                </slider>
+                            </items>
+                        </group>
+                        <separator alignment="left" alpha="0.80000000000000004" id="4K1-9w-ICy">
+                            <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                        <group width="1" alignment="left" layout="vertical" id="i2K-T2-uZO">
+                            <items>
+                                <label height="20" alignment="left" text="Audio Cues" id="GOT-GH-c9R"/>
+                                <switch width="1" alignment="left" value="YES" title="On" id="1fX-pQ-FRN">
+                                    <connections>
+                                        <action selector="onAudioCueChanged:" destination="wol-7z-4Pg" id="7GI-Hk-PC2"/>
+                                    </connections>
+                                </switch>
+                                <separator alignment="left" alpha="0.80000000000000004" id="xJV-RG-fqJ">
+                                    <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </separator>
+                                <label alignment="left" text="Audio Type" id="GLY-Zi-eZF"/>
+                                <picker height="50" alignment="left" focusStyle="sequence" indicatorMode="shownWhileFocused" id="jLZ-xS-Ted">
+                                    <connections>
+                                        <action selector="onAudioChanged:" destination="wol-7z-4Pg" id="JGa-6f-wNc"/>
+                                    </connections>
+                                </picker>
+                            </items>
+                        </group>
+                        <separator alignment="left" alpha="0.80000000000000004" id="vJd-k6-LRF">
+                            <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </separator>
+                    </items>
+                    <connections>
+                        <outlet property="audioCueSwitch" destination="1fX-pQ-FRN" id="ELS-Ts-QbN"/>
+                        <outlet property="audioPicker" destination="jLZ-xS-Ted" id="nC6-ON-vNP"/>
+                        <outlet property="sessionLengthLabel" destination="lwB-sw-hPZ" id="ZJM-K1-Zr5"/>
+                        <outlet property="sessionLengthSlider" destination="3ZS-Qr-QXZ" id="pS7-nE-kLx"/>
+                        <segue destination="0yT-45-6WR" kind="relationship" relationship="nextPage" id="XYI-Oh-nvh"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="382" y="-91"/>
+        </scene>
+        <!--CompletedInterfaceController-->
+        <scene sceneID="CMV-Ch-DTJ">
+            <objects>
+                <controller identifier="CompletedInterfaceController" id="X4X-VM-Xbm" customClass="CompletedInterfaceController" customModule="mobilemindful_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Session Completed" minimumScaleFactor="0.69999999999999996" id="xoj-Nt-Roz">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                        </label>
+                        <label alignment="left" text="5 minutes" id="0yx-OW-bLT">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <label alignment="left" text="Average HR" id="Nta-4F-FH5">
+                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                        </label>
+                        <group width="1" alignment="right" id="QLh-RZ-yA0">
+                            <items>
+                                <label alignment="left" verticalAlignment="center" text="---" id="qDI-1t-E4S">
+                                    <color key="textColor" red="0.90404826400000005" green="0.29848873619999999" blue="0.23712033029999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </label>
+                                <imageView width="20" height="20" alignment="left" verticalAlignment="center" image="heart-icon" id="IGL-B3-yUB"/>
+                            </items>
+                        </group>
+                        <button width="1" height="40" alignment="center" verticalAlignment="bottom" title="Discard" backgroundImage="cancel" id="GxD-86-1IK">
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="onDiscardPressed" destination="X4X-VM-Xbm" id="J6o-uo-A49"/>
+                            </connections>
+                        </button>
+                        <button width="1" height="40" alignment="center" verticalAlignment="center" title="Save" backgroundImage="gradient" id="UMm-Ao-1Pb">
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="onHomePressed" destination="X4X-VM-Xbm" id="nkE-z1-fQi"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="heartRateLabel" destination="qDI-1t-E4S" id="Gav-rZ-0uR"/>
+                        <outlet property="sessionLengthLabel" destination="0yx-OW-bLT" id="fvO-dZ-hR6"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="382" y="320"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cancel" width="150" height="50"/>
+        <image name="gradient" width="150" height="50"/>
+        <image name="heart-icon" width="512" height="512"/>
+    </resources>
+</document>
