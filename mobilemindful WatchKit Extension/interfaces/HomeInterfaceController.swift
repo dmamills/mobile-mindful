@@ -16,8 +16,16 @@ class HomeInterfaceController: WKInterfaceController {
 
     override func willActivate() {
         super.willActivate()
+        sessionLabel.setAlpha(0.0)
+        startButton.setAlpha(0.0)
+
         let sessionLength = SettingsManager.getDuration()
         sessionLabel.setText("Start \(sessionLength) minute session")
+        animate(withDuration: 1.75) {
+            self.sessionLabel.setAlpha(1.0)
+            self.startButton.setAlpha(1.0)
+        }
+
         HealthKitManager.authorizeHealthKit { success in
             if success {
                 self.startButton.setEnabled(true)

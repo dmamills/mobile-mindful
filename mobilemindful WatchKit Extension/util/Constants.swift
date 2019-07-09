@@ -15,8 +15,9 @@ class Constants {
     static let sessionLengthKey = "session_length"
     static let audioCuesKey = "audio_cues"
     static let audioFileKey = "audio_file"
+    static let audioFadeOutDuration = 10.0
 
-    static let audioFile = "example1"
+    static let completedAudioFile = "completed"
     static let audioTitles = ["early", "midday", "late"]
     static let sessionTableDateFormat = "MMM dd hh:mma"
 
@@ -26,6 +27,8 @@ class Constants {
     static let WEEK = Constants.DAY * 7
     static let MONTH = Constants.WEEK * 4
     static let YEAR = Constants.MONTH * 12
+
+    static let heartImageSize = 20.0
 
     // Interface Controllers
     static let homeView = "HomeInterfaceController"

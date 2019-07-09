@@ -11,10 +11,17 @@ import AVFoundation
 
 class AudioManager {
 
+
+    static func getUrlForString(for value : String) -> URL {
+        return URL.init(fileURLWithPath: Bundle.main.path(forResource: value, ofType: "mp3")!)
+    }
+
     static func getUrlForCurrentSong() -> URL {
-        let selectedSong = SettingsManager.getAudioFile()
-        //let selectedSong = Constants.audioFile
-        return URL.init(fileURLWithPath: Bundle.main.path(forResource: selectedSong, ofType: "mp3")!)
+        return getUrlForString(for: SettingsManager.getAudioFile())
+    }
+
+    static func getUrlForCompletionSound() -> URL {
+        return getUrlForString(for: Constants.completedAudioFile)
     }
 
     static func createAudioPlayer(for url : URL) -> AVAudioPlayer? {

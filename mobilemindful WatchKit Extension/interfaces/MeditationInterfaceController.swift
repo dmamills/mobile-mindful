@@ -23,6 +23,7 @@ class MeditationInterfaceController: WKInterfaceController {
     var player : AVAudioPlayer?
 
     var timer : Timer!
+    var fadeoutTimer : Timer?
     var heartRateQuery : HKAnchoredObjectQuery?
     var session = WKExtendedRuntimeSession()
     var mindfulSession : MindfulSessionStats!
@@ -40,7 +41,6 @@ class MeditationInterfaceController: WKInterfaceController {
         if SettingsManager.getAudioCue() {
             setupAudio(onSetup: startSession)
         } else {
-            session.start()
             startSession()
         }
     }
@@ -48,11 +48,18 @@ class MeditationInterfaceController: WKInterfaceController {
     func startSession() {
         DispatchQueue.main.async {
             print("MeditationInterfaceControllere#startSession")
+            self.session.start()
             self.mindfulSession = MindfulSessionStats()
             self.timer = Timer.scheduledTimer(withTimeInterval: self.mindfulSession.duration, repeats: false, block: self.onDone)
             self.timerLabel.setDate(self.timer.fireDate)
             self.timerLabel.start()
             self.createHeartRateQuery()
+
+            if self.player != nil && self.player!.isPlaying {
+                self.fadeoutTimer = Timer.scheduledTimer(withTimeInterval: self.mindfulSession.duration - Constants.audioFadeOutDuration, repeats: false, block: {_ in
+                    self.player?.setVolume(0.0, fadeDuration: Constants.audioFadeOutDuration)
+                })
+            }
         }
     }
 
@@ -77,16 +84,27 @@ class MeditationInterfaceController: WKInterfaceController {
                 return
             }
 
-            if let audioPlayer = self.player {
-                audioPlayer.numberOfLoops = -1
-                audioPlayer.play()
+            if !success {
+                DispatchQueue.main.async {
+                    WKInterfaceController.reloadRootPageControllers(withNames: Constants.mainViews, contexts: Constants.mainViews, orientation: .horizontal, pageIndex: 0)
+                }
             } else {
-                self.session.start()
-            }
+                if let audioPlayer = self.player {
+                    audioPlayer.numberOfLoops = -1
+                    audioPlayer.play()
+                }
 
-            //self.player?.setVolume(0.0, fadeDuration: 5.0)
-            onSetup()
+                onSetup()
+            }
         })
+    }
+
+    func animateHeart(bpm : Int) {
+        self.animate(withDuration: 0.5) {
+            let imageSize = CGFloat(Float(Constants.heartImageSize) * Float(bpm) / 100.0)
+            self.heartRateImage.setWidth(imageSize)
+            self.heartRateImage.setHeight(imageSize)
+        }
     }
 
     func onSample(anchorObjectQuery :HKAnchoredObjectQuery, samples : [HKSample]?, deletedObjects: [HKDeletedObject]?, queryAnchor: HKQueryAnchor?, error : Error?) {
@@ -97,6 +115,7 @@ class MeditationInterfaceController: WKInterfaceController {
             let value = Int(sample.quantity.doubleValue(for: HealthKitManager.heartRateUnit))
             self.mindfulSession.add(value)
             self.heartRateLabel.setText(String(value))
+            self.animateHeart(bpm: value)
         }
     }
 

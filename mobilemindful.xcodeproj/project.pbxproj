@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8513010A22D27DFC0057F1C2 /* example1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8513010922D27DFC0057F1C2 /* example1.mp3 */; };
 		8513010C22D289E80057F1C2 /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513010B22D289E80057F1C2 /* Extension+Date.swift */; };
 		8513010E22D2C8600057F1C2 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8513010D22D2C8600057F1C2 /* AudioManager.swift */; };
 		8513011222D2DCE70057F1C2 /* early.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8513010F22D2DCE60057F1C2 /* early.mp3 */; };
 		8513011322D2DCE70057F1C2 /* late.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8513011022D2DCE70057F1C2 /* late.mp3 */; };
 		8513011422D2DCE70057F1C2 /* midday.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8513011122D2DCE70057F1C2 /* midday.mp3 */; };
+		853DC5C722D43C88003985EE /* completed.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 853DC5C622D43C87003985EE /* completed.mp3 */; };
 		8542A5BC22D17FB2007C0ED4 /* StatsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8542A5BB22D17FB2007C0ED4 /* StatsInterfaceController.swift */; };
 		855DCC9222D1455600C316BB /* CompletedInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DCC9122D1455600C316BB /* CompletedInterfaceController.swift */; };
 		855DCC9522D146FC00C316BB /* MindfulSessionStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855DCC9422D146FC00C316BB /* MindfulSessionStats.swift */; };
@@ -77,12 +77,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8513010922D27DFC0057F1C2 /* example1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = example1.mp3; sourceTree = "<group>"; };
 		8513010B22D289E80057F1C2 /* Extension+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Date.swift"; sourceTree = "<group>"; };
 		8513010D22D2C8600057F1C2 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		8513010F22D2DCE60057F1C2 /* early.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = early.mp3; sourceTree = "<group>"; };
 		8513011022D2DCE70057F1C2 /* late.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = late.mp3; sourceTree = "<group>"; };
 		8513011122D2DCE70057F1C2 /* midday.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = midday.mp3; sourceTree = "<group>"; };
+		853DC5C622D43C87003985EE /* completed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = completed.mp3; sourceTree = "<group>"; };
 		8542A5BB22D17FB2007C0ED4 /* StatsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsInterfaceController.swift; sourceTree = "<group>"; };
 		855DCC9122D1455600C316BB /* CompletedInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedInterfaceController.swift; sourceTree = "<group>"; };
 		855DCC9422D146FC00C316BB /* MindfulSessionStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindfulSessionStats.swift; sourceTree = "<group>"; };
@@ -131,10 +131,31 @@
 			path = interfaces;
 			sourceTree = "<group>";
 		};
+		8580F2DC22D41CA30014A70B /* util */ = {
+			isa = PBXGroup;
+			children = (
+				8513010B22D289E80057F1C2 /* Extension+Date.swift */,
+				85AF1AA122CD8D3400472966 /* Constants.swift */,
+				855F2BB722D18D8B00C7DBF2 /* SettingsManager.swift */,
+				8513010D22D2C8600057F1C2 /* AudioManager.swift */,
+				8581F08822CE5FB100978F4C /* HealthKitManager.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		8580F2DD22D41CC70014A70B /* models */ = {
+			isa = PBXGroup;
+			children = (
+				859D14DF22D25D8400B9392D /* SessionRowController.swift */,
+				855DCC9422D146FC00C316BB /* MindfulSessionStats.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		85AF1A6A22CD635F00472966 = {
 			isa = PBXGroup;
 			children = (
-				8513010922D27DFC0057F1C2 /* example1.mp3 */,
+				853DC5C622D43C87003985EE /* completed.mp3 */,
 				8513010F22D2DCE60057F1C2 /* early.mp3 */,
 				8513011022D2DCE70057F1C2 /* late.mp3 */,
 				8513011122D2DCE70057F1C2 /* midday.mp3 */,
@@ -169,18 +190,13 @@
 		85AF1A8822CD636100472966 /* mobilemindful WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				8580F2DD22D41CC70014A70B /* models */,
+				8580F2DC22D41CA30014A70B /* util */,
 				855DCC9322D1464900C316BB /* interfaces */,
-				85AF1AA122CD8D3400472966 /* Constants.swift */,
-				8581F08822CE5FB100978F4C /* HealthKitManager.swift */,
 				85AF1A8B22CD636100472966 /* ExtensionDelegate.swift */,
-				855DCC9422D146FC00C316BB /* MindfulSessionStats.swift */,
-				855F2BB722D18D8B00C7DBF2 /* SettingsManager.swift */,
 				85F975AA22CE63CA002F6140 /* mobilemindful WatchKit Extension.entitlements */,
 				85AF1A8D22CD636200472966 /* Assets.xcassets */,
 				85AF1A8F22CD636200472966 /* Info.plist */,
-				859D14DF22D25D8400B9392D /* SessionRowController.swift */,
-				8513010B22D289E80057F1C2 /* Extension+Date.swift */,
-				8513010D22D2C8600057F1C2 /* AudioManager.swift */,
 			);
 			path = "mobilemindful WatchKit Extension";
 			sourceTree = "<group>";
@@ -311,10 +327,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				853DC5C722D43C88003985EE /* completed.mp3 in Resources */,
 				8513011322D2DCE70057F1C2 /* late.mp3 in Resources */,
 				8513011422D2DCE70057F1C2 /* midday.mp3 in Resources */,
 				85AF1A8E22CD636200472966 /* Assets.xcassets in Resources */,
-				8513010A22D27DFC0057F1C2 /* example1.mp3 in Resources */,
 				8513011222D2DCE70057F1C2 /* early.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
