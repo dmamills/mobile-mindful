@@ -75,7 +75,7 @@ class CompletedInterfaceController: WKInterfaceController {
             }
         })
     }
-    
+
     @IBAction func onDiscardPressed() {
         goHome()
     }

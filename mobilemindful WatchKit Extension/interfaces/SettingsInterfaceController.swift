@@ -43,7 +43,7 @@ class SettingsInterfaceController: WKInterfaceController {
         audioPicker.setItems(pickerItems)
         audioPicker.setSelectedItemIndex(SettingsManager.getAudioFileIndex())
         audioPicker.setEnabled(SettingsManager.getAudioCue())
-    
+
     }
 
     @IBAction func onAudioCueChanged(_ value: Bool) {

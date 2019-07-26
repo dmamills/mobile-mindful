@@ -10,7 +10,7 @@ import Foundation
 import WatchKit
 
 class SessionRowController : NSObject {
-    
+
     @IBOutlet weak var dateLabel: WKInterfaceLabel!
     @IBOutlet weak var lengthLabel : WKInterfaceLabel!
 }

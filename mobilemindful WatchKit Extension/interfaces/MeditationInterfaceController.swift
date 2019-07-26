@@ -14,9 +14,10 @@ import AVFoundation
 class MeditationInterfaceController: WKInterfaceController {
 
     @IBOutlet weak var timerLabel: WKInterfaceTimer!
-    @IBOutlet weak var titleLabel: WKInterfaceLabel!
+    @IBOutlet weak var titleLabel: WKInterfaceImage!
     @IBOutlet weak var heartRateLabel: WKInterfaceLabel!
     @IBOutlet weak var heartRateImage: WKInterfaceImage!
+    @IBOutlet weak var volumeControl: WKInterfaceVolumeControl!
 
     let healthStore : HKHealthStore = HKHealthStore()
     let avSession = AVAudioSession()
@@ -33,7 +34,6 @@ class MeditationInterfaceController: WKInterfaceController {
 
         session.delegate = self
         guard HKHealthStore.isHealthDataAvailable() == true else {
-            titleLabel.setText("not available")
             dismiss()
             return
         }
@@ -41,6 +41,7 @@ class MeditationInterfaceController: WKInterfaceController {
         if SettingsManager.getAudioCue() {
             setupAudio(onSetup: startSession)
         } else {
+            volumeControl.setAlpha(0.0)
             startSession()
         }
     }
@@ -123,7 +124,9 @@ class MeditationInterfaceController: WKInterfaceController {
         print("Timer completed.")
         if session.state == .running {
             session.invalidate()
-        } else {
+        }
+
+        if player != nil && player!.isPlaying {
             player?.stop()
         }
 
@@ -134,6 +137,7 @@ class MeditationInterfaceController: WKInterfaceController {
         }
     }
 }
+
 
 extension MeditationInterfaceController : WKExtendedRuntimeSessionDelegate {
     func extendedRuntimeSessionDidStart(_ extendedRuntimeSession: WKExtendedRuntimeSession) {}

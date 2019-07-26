@@ -35,7 +35,7 @@ class HomeInterfaceController: WKInterfaceController {
             }
         }
     }
-    
+
     @IBAction func onStartPressed() {
         WKInterfaceController.reloadRootPageControllers(withNames: [Constants.meditationView], contexts: [Constants.meditationView], orientation: .horizontal, pageIndex: 0)
     }

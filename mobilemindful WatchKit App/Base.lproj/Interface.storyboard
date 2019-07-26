@@ -53,9 +53,7 @@
             <objects>
                 <controller identifier="HomeInterfaceController" spacing="0.0" id="AgC-eL-Hgc" customClass="HomeInterfaceController" customModule="mobilemindful_WatchKit_Extension">
                     <items>
-                        <label width="1" alignment="left" text="mobile mindful" textAlignment="center" id="Veb-G0-rId">
-                            <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
-                        </label>
+                        <imageView alignment="left" image="text-logo" contentMode="scaleAspectFill" id="Q0V-i0-fC7"/>
                         <label alignment="left" text="Start 5 Minute Session" minimumScaleFactor="0.5" id="jlm-Dh-8m7"/>
                         <group width="1" alignment="left" verticalAlignment="bottom" id="gH8-J9-F6T">
                             <items>
@@ -83,9 +81,7 @@
             <objects>
                 <controller identifier="MeditationInterfaceController" id="0Cs-5k-nhR" customClass="MeditationInterfaceController" customModule="mobilemindful_WatchKit_Extension">
                     <items>
-                        <label width="1" alignment="left" text="mobile mindful" textAlignment="center" id="kQO-WB-I7G">
-                            <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
-                        </label>
+                        <imageView alignment="left" image="text-logo" contentMode="scaleAspectFill" id="2wb-l8-o1r"/>
                         <group width="1" alignment="center" spacing="0.0" id="gAf-Lo-PdC">
                             <items>
                                 <timer width="0.5" alignment="left" verticalAlignment="center" textAlignment="left" id="J1u-0W-CPp">
@@ -94,7 +90,7 @@
                                 </timer>
                                 <group width="0.5" alignment="right" verticalAlignment="bottom" spacing="5" id="Jvc-uY-ryE">
                                     <items>
-                                        <label width="0.5" alignment="center" verticalAlignment="center" text="---" textAlignment="center" id="4ZU-2x-hNl">
+                                        <label width="0.69999999999999996" alignment="center" verticalAlignment="center" text="---" textAlignment="center" minimumScaleFactor="0.90000000000000002" id="4ZU-2x-hNl">
                                             <color key="textColor" red="0.90404826400000005" green="0.29848873619999999" blue="0.23712033029999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
                                         </label>
@@ -111,7 +107,8 @@
                         <outlet property="heartRateImage" destination="f9o-wx-vc2" id="pX1-Of-bAh"/>
                         <outlet property="heartRateLabel" destination="4ZU-2x-hNl" id="8Xo-9K-nKg"/>
                         <outlet property="timerLabel" destination="J1u-0W-CPp" id="JXz-kY-XPc"/>
-                        <outlet property="titleLabel" destination="kQO-WB-I7G" id="mS5-Mf-Uey"/>
+                        <outlet property="titleLabel" destination="2wb-l8-o1r" id="auc-oJ-CMX"/>
+                        <outlet property="volumeControl" destination="sOe-yd-mdw" id="JCx-7C-qhP"/>
                     </connections>
                 </controller>
             </objects>
@@ -134,7 +131,7 @@
                                 <label alignment="left" text="5 minutes" numberOfLines="2" id="lwB-sw-hPZ">
                                     <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
                                 </label>
-                                <slider width="1" alignment="left" value="5" minimum="1" maximum="10" steps="1" id="3ZS-Qr-QXZ">
+                                <slider width="1" alignment="left" value="5" minimum="1" maximum="10" steps="9" id="3ZS-Qr-QXZ">
                                     <connections>
                                         <action selector="onSessionLengthChanged:" destination="wol-7z-4Pg" id="hlO-l0-Jtg"/>
                                     </connections>
@@ -185,7 +182,7 @@
             <objects>
                 <controller identifier="CompletedInterfaceController" id="X4X-VM-Xbm" customClass="CompletedInterfaceController" customModule="mobilemindful_WatchKit_Extension">
                     <items>
-                        <label alignment="left" text="Session Completed" minimumScaleFactor="0.69999999999999996" id="xoj-Nt-Roz">
+                        <label alignment="left" text="session completed" minimumScaleFactor="0.69999999999999996" id="xoj-Nt-Roz">
                             <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
                         </label>
                         <group width="1" alignment="left" id="Of6-2b-D4J">
@@ -244,5 +241,6 @@
         <image name="cancel" width="150" height="50"/>
         <image name="gradient" width="150" height="50"/>
         <image name="heart-icon" width="512" height="512"/>
+        <image name="text-logo" width="618" height="133"/>
     </resources>
 </document>
